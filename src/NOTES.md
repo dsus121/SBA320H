@@ -7,6 +7,15 @@
     npm install dotenv
     npm run dev
 
+these urls work:
+
+https://partners.every.org/v0.2/search/women-and-girls?apiKey=pk_live_4540df56249c9e8e63fb56e256b09e24
+
+https://partners.every.org/v0.2/search/indigenous-peoples?apiKey=pk_live_4540df56249c9e8e63fb56e256b09e24
+
+https://partners.every.org/v0.2/search/animals?apiKey=pk_live_4540df56249c9e8e63fb56e256b09e24
+
+
 
 Hey! Remember you have to attribute robikucluk
 [Flaticon by "robikucluk"](https://www.flaticon.com/authors/robikucluk)
