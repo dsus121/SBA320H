@@ -16,10 +16,6 @@ https://partners.every.org/v0.2/search/indigenous-peoples?apiKey=pk_live_4540df5
 https://partners.every.org/v0.2/search/animals?apiKey=pk_live_4540df56249c9e8e63fb56e256b09e24
 
 
-
-Hey! Remember you have to attribute robikucluk
-[Flaticon by "robikucluk"](https://www.flaticon.com/authors/robikucluk)
-
 Valid search terms (causes) you can use with the Every.org API:
 
 - aapi-led
