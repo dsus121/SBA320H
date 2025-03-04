@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { fetchNonProfits } from './api';
+import CharityList from './ColoradoApi';
 import "./App.css";
 
 function App() {
