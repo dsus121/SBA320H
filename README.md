@@ -1,6 +1,9 @@
 # SBA 320H - The Bones of a Cool Donation Site - Working with Colorado 501(c)(3) Data 
 ## A React Web Application Project
 
+![filetree](src/assets/images/filetree.png)
+
+
 # Technologies Used
 
 - **HTML**: Used for structuring the content of the web application.

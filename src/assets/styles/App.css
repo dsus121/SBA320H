@@ -75,7 +75,7 @@ input {
 
 .results-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  grid-template-columns: repeat(2, 1fr); 
   gap: 20px;
   width: 100%;
   box-sizing: border-box;

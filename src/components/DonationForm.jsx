@@ -1,7 +1,7 @@
 // DonationForm.jsx
 
-import "./App.css";
 import { useState } from "react";
+import "../assets/styles/App.css";
 
 const DonationForm = ({ charity, onClose, onSubmit }) => {
   const [name, setName] = useState("");
