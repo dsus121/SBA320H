@@ -1,20 +1,31 @@
 #root {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
 .App {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 20px;
-  font-family: Arial, sans-serif;
 }
 
 h1 {
-  text-align: center;
   margin-bottom: 20px;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+input {
+  padding: 4px;
+  font-size: 1em;
+  color: #9ca1f5;
+
 }
 
 .button-container {
@@ -24,34 +35,23 @@ h1 {
   margin-bottom: 20px;
 }
 
-button {
-  padding: 10px 15px ;
-  background-color: #151515 ;
-  border: 1px solid #ccc ;
-  border-radius: 4px ;
-  cursor: pointer ;
-  transition: all 0.3s ;
+.button {
+  padding: 10px 15px;
+  background-color: #151515;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
-button:hover {
-  background-color: #2806a4 ;
+.button:hover {
+  background-color: #2806a4;
 }
 
-button.active {
-  background-color: #282044 ;
-  color: white ;
-}
-
-.error {
-  color: red;
-  text-align: center;
-  margin: 20px 0;
-}
-
-.results {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+.button.selected {
+  background-color: #2806a4;
+  border-color: #646cff;
 }
 
 .nonprofit-card {
@@ -59,25 +59,66 @@ button.active {
   border-radius: 8px;
   padding: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #282044 ; 
+  background-color: #282044;
+  color: white;
+  box-sizing: border-box;
 }
 
-.nonprofit-logo {
-  max-width: 100px;
-  max-height: 100px;
-  margin: 10px 0;
+.results {
+  display: grid;
+  gap: 20px; 
+  width: 100%; 
+  box-sizing: border-box; 
 }
 
-.nonprofit-link {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 5px 10px;
-  background-color: #867ab2 ;
-  color: white ;
-  text-decoration: none;
-  border-radius: 4px;
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.nonprofit-link:hover {
-  background-color: #000000 ;
+.donation-form-modal {
+  background-color: #242424;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.donation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.amount-buttons {
+  gap: 10px;
+}
+
+.close-button {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  background: none;
+  border: none;
+  color: black;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #fff;
 }

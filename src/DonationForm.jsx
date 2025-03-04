@@ -1,32 +1,69 @@
-// dummy donation form component
-const DonationForm = ({ charity, onClose }) => {
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        alert("Donation submitted!");
-        onClose();
-    };
+import "./App.css";
+import { useState } from "react";
 
-    return (
-        <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", backgroundColor: "white", padding: "20px", border: "1px solid #ccc", borderRadius: "8px" }}>
-          <h2>Donate to {charity.name}</h2>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label>
-                Name:
-                <input type="text" required />
-              </label>
-            </div>
-            <div>
-              <label>
-                Amount:
-                <input type="number" required />
-              </label>
-            </div>
-            <button type="submit">Submit</button>
-            <button type="button" onClick={onClose}>Cancel</button>
-          </form>
+const DonationForm = ({ charity, onClose }) => {
+  const [name, setName] = useState("");
+  const [amount, setAmount] = useState(null);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (name && amount) {
+      alert(`Donation of $${amount} submitted by ${name}!`);
+      localStorage.setItem("donorName", name); // Store the name in local storage
+      onClose();
+    } else {
+      alert("Please enter your name and select an amount.");
+    }
+  };
+
+  return (
+    <div className="donation-form-modal">
+      <button className="close-button" onClick={onClose}>X</button>
+      <h2>Donate to {charity.name}</h2>
+      <form onSubmit={handleSubmit} className="donation-form">
+        <div className="form-group">
+          <label>
+            Please enter your name: 
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </label>
         </div>
-      );
-    };
-    
-    export default DonationForm;
+        <div className="form-group">
+          <label>I'd like to donate ↓</label>
+          <div className="amount-buttons">
+            <button
+              type="button"
+              className={`button ${amount === 5 ? "selected" : ""}`}
+              onClick={() => setAmount(5)}
+            >
+              $5
+            </button>
+            <button
+              type="button"
+              className={`button ${amount === 50 ? "selected" : ""}`}
+              onClick={() => setAmount(50)}
+            >
+              $50
+            </button>
+            <button
+              type="button"
+              className={`button ${amount === 500 ? "selected" : ""}`}
+              onClick={() => setAmount(500)}
+            >
+              $500
+            </button>
+          </div>
+        </div>
+        <div className="form-buttons">
+          <button type="submit" className="button">Submit</button>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+export default DonationForm;
