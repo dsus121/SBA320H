@@ -1,3 +1,5 @@
+// COapp.jsx
+
 import { useState, useEffect } from "react";
 import useCharities from "./ColoradoApi";
 import DonationForm from "./DonationForm";
@@ -9,6 +11,7 @@ const COapp = () => {
   const [filter, setFilter] = useState("all");
   const [counts, setCounts] = useState({ all: 0, socialResponsibility: 0, environment: 0, animals: 0 });
   const [expandedCharities, setExpandedCharities] = useState({});
+  const [donationInfo, setDonationInfo] = useState({ name: "", amount: null });
 
   useEffect(() => {
     const countCharities = () => {
@@ -28,16 +31,20 @@ const COapp = () => {
     countCharities();
   }, [charities]);
 
+  const handleDonationSubmit = (name, amount) => {
+    setDonationInfo({ name, amount });
+    setSelectedCharity(null);
+  };
+
   if (loading) return <p>Loading charities...</p>;
   if (error) return <p>Error: {error}</p>;
 
-  // Filter charities based on the selected filter
+  // filter charities based on the selection
   const filteredCharities = charities.filter((charity) => {
     if (filter === "all") return true;
     return charity.statementofpurpose.toLowerCase().includes(filter);
   });
 
-  // Group charities by the selected filter
   const groupedCharities = filteredCharities.reduce((acc, charity) => {
     const key = filter === "all" ? "All Charities" : filter;
     if (!acc[key]) {
@@ -72,24 +79,29 @@ const COapp = () => {
           <div key={key}>
             <h2>{key}</h2>
             <div className="results-grid">
-            {groupedCharities[key].map((charity, index) => (
-              <div key={index} className="nonprofit-card">
-                <h3>{charity.name || "No Name Available"}</h3>
-                <p onClick={() => toggleExpand(index)} style={{ cursor: "pointer" }}>
-                  <strong>Purpose:</strong>{" "}
-                  {expandedCharities[index]
-                    ? toSentenceCase(charity.statementofpurpose)
-                    : `${toSentenceCase(charity.statementofpurpose.substring(0, 100))}...`}
-                </p>
-                <p><strong>Filing Date:</strong> {charity.filingdate || "N/A"}</p>
-                <button className="button" onClick={() => setSelectedCharity(charity)}>Donate</button>
-              </div>
-            ))}
+              {groupedCharities[key].map((charity, index) => (
+                <div key={index} className="nonprofit-card">
+                  <h3>{charity.name || "No Name Available"}</h3>
+                  <p onClick={() => toggleExpand(index)} style={{ cursor: "pointer" }}>
+                    <strong>Purpose:</strong>{" "}
+                    {expandedCharities[index]
+                      ? toSentenceCase(charity.statementofpurpose)
+                      : `${toSentenceCase(charity.statementofpurpose.substring(0, 100))}...`}
+                  </p>
+                  <p><strong>Filing Date:</strong> {charity.filingdate || "N/A"}</p>
+                  <button className="button" onClick={() => setSelectedCharity(charity)}>Donate</button>
+                </div>
+              ))}
             </div>
-          </div>    
+          </div>
         ))}
       </div>
-      {selectedCharity && <DonationForm charity={selectedCharity} onClose={() => setSelectedCharity(null)} />}
+      {selectedCharity && <DonationForm charity={selectedCharity} onClose={() => setSelectedCharity(null)} onSubmit={handleDonationSubmit} />}
+      {donationInfo.name && donationInfo.amount && (
+        <div className="donation-info">
+          <p>Thank you, {donationInfo.name}, for your generous donation of ${donationInfo.amount}!</p>
+        </div>
+      )}
     </div>
   );
 };

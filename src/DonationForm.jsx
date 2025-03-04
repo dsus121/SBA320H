@@ -1,7 +1,9 @@
+// DonationForm.jsx
+
 import "./App.css";
 import { useState } from "react";
 
-const DonationForm = ({ charity, onClose }) => {
+const DonationForm = ({ charity, onClose, onSubmit }) => {
   const [name, setName] = useState("");
   const [amount, setAmount] = useState(null);
 
@@ -10,6 +12,7 @@ const DonationForm = ({ charity, onClose }) => {
     if (name && amount) {
       alert(`Donation of $${amount} submitted by ${name}!`);
       localStorage.setItem("donorName", name); // Store the name in local storage
+      onSubmit(name, amount); // Call the onSubmit callback
       onClose();
     } else {
       alert("Please enter your name and select an amount.");
