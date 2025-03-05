@@ -62,10 +62,3 @@ You can view the live site here: [Easy Philanthropy](https://incomparable-flan-9
 
 ### Notes on finding an API 
 [Finding an API](https://ps-react-curriculum.herokuapp.com/320/project/#-finding-an-api)
-
-### Extra: Want your own domain name?
-You can also host your GitHub pages with your own domain name.
-Here is a walkthrough from namecheap, one web hosting service.
-If you choose to do this, it is best to save it for last so that you know you have time to finish the project's requirements.
-
-
