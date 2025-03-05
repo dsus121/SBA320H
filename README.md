@@ -31,6 +31,9 @@ Your application must meet these requirements to pass (this it your Minimum Viab
     - [X] Unsolved problems.
 - [X] Use AJAX to make a request to an external data source like OMDBapi, and insert some of the data retrieved into the DOM.
 
+## Usage Instructions
+Explore nonprofits available through the Colorado Non-Profit Data API. Click on a nonprofit to view more details. Use the placeholder donation feature to simulate a donor interaction.
+
 ## Bonus Features
 The following are not required:
 
@@ -39,11 +42,19 @@ The following are not required:
 
 ## Approach
 
-I investigated several APIs, checked their endpoints, and allowed the data to shape what the application would become. I then started to set up my original App.jsx file. (I worked with a different API for a couple of days, but found its data disappointing. I then switched to the State of Colorado API and created my ColoradoApi.js file.) I referenced the React Documentation, as well as watched a number of YouTube videos to get the data flowing. I left all of the old files just in case I couldn't get the new setup to run properly. The goal was to set up a donation site using Stripe, but getting the MVP was paramount.
+I investigated several APIs, checked their endpoints, and allowed the data to shape what the application would become. I then started to set up my original App.jsxfile. (I worked with a different API for a couple of days but found its data disappointing. I then switched to the State of Colorado API and created my ColoradoApi.jsfile.)
+
+I referenced the React Documentation, watched multiple YouTube videos, and utilized online tutorials to get the data flowing. The original files for the old API were retained in case the new setup failed.
+
+While my ultimate goal was to set up a donation site with Stripe integration, my focus for this iteration was on meeting the MVP requirements. I prioritized building a functional structure and experimenting with LocalStorage to enhance user experience by saving data locally in their browser.
 
 ## Unsolved Problems
 
-The donation component doesn't actually allow any real donations yet. I built it as a placeholder, then spent way too much time making it look less ugly. It did serve as an inspiration to utilize local storage, however. I definitely need more iterations on every single piece of this project. I would like to group the non-profits together in a smarter way, but that may mean using a different API. I can follow the documentation and implement a feature, but I still struggle with writing from scratch.
+The donation component is currently a placeholder and does not handle real transactions yet. The intention was to implement this feature with Stripe, but time was allocated to meet MVP requirements first.
+
+Grouping nonprofits more intelligently may require switching to a different API or additional filtering logic.
+
+While I can implement features using documentation, I aim to improve my ability to write components from scratch. My next step is to practice building smaller projects that focus on React fundamentals to solidify my skills.
 
 ## Live Site
 
